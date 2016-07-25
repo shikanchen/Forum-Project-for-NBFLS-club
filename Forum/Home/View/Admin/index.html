@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1" user-scalable="no"/>
+    <script type="text/javascript" src="__PUBLIC__/Static/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/bootstrap/js/fileinput.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/x-editable/js/bootstrap-editable.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/Home/javascripts/default.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/Home/javascripts/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/x-editable/css/bootstrap-editable.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/bootstrap/css/fileinput.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/Home/stylesheets/default.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/Home/stylesheets/admin.css"/>
+	<title></title>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+  		<div class="container-fluid">
+    		<!-- Brand and toggle get grouped for better mobile display -->
+    		<div class="navbar-header">
+      			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        			<span class="sr-only">Toggle navigation</span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+      			</button>
+      			<a class="navbar-brand" href="__MODULE__/Index"><img src="__PUBLIC__/Img/brand.png"></a>
+    		</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+	    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    	  	<ul class="nav navbar-nav">
+	    	    	<li class=""><a href="__MODULE__/Home">Home</a></li>
+	    	    	<li class=""><a href="__MODULE__/Forum">Forum</a></li>
+	    	    	<li class="active"><a href="__MODULE__/Admin">My Rocky</a></li>
+	    	  	</ul>
+	    	  	<form class="navbar-form navbar-left" onsumbit="return searchCheckup();" role="search" action="__MODULE__/Forum/search" method="post">
+	    	    	<div class="form-group">
+	    	      		<input name="searchKey" type="text" class="form-control" placeholder="Search Topics or Rockiors">
+	    	    	</div>
+	    	    	<button type="submit" class="btn btn-default navSearch">Search</button>
+	    	  	</form>
+	    	  	<ul class="nav navbar-nav navbar-right">
+	    	    	<!-- <li><a href="#">Logout</a></li> -->
+	    	    	<li class="dropdown">
+	    	      		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{$admin.name} <span class="caret"></span></a>
+	    	      		<ul class="dropdown-menu">
+	    	        		<li><a href="#">My Rocky</a></li>
+	    	        		<li><a href="#">My Clans</a></li>
+	    	        		<li><a href="#">Settings</a></li>
+	    	        		<li role="separator" class="divider"></li>
+	    	        		<li><a class="logout" class="logout" href="#">Logout</a></li>
+	    	      		</ul>
+	    	    	</li>
+	    	  	</ul>
+	    	</div><!-- /.navbar-collapse -->
+	  	</div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="container">
+		<div class="left">
+			<div class="well">
+				<h3>{$admin.name}</h3>
+				<div id="userThumb">
+					<img src="{$adminThumb}__PUBLIC__/Img/defaultThumb.png">
+					<form class="upLoadForm" action="do_file_upload.php" method="post">
+                        <!-- <input id="inputFile" type="file" name="file" class="file input-id" data-preview-file-type="any" > -->
+                	</form>
+				</div>
+				<div id="userProfile">
+					<table class="table">
+						<tr>
+							<td><span>Full Name:</span></td>
+							<td><a name="name" href="#" class="editable yetUnabled" data-type="text" data-pk="1" data-url="__CONTROLLER__/changeProfile" data-original-title="Enter Full Name (English Name + Chinese Name)">{$admin.name}</a></td>
+						</tr>
+						<tr>
+							<td><span>Age:</span></td>
+							<td><a name="age" href="#" class="editable" data-type="range" data-pk="2" data-url="__CONTROLLER__/changeProfile" data-original-title="Swipe to choose Age">{$admin.age}</a></td>
+						</tr>
+						<tr>
+							<td><span>Email:</span></td>
+							<td><a name="email" href="#" class="editable" data-type="email" data-pk="3" data-url="__CONTROLLER__/changeProfile" data-original-title="Enter Email">{$admin.email}</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="well">
+				<h4>My Friends</h4>
+				<div>
+				<empty name="list">
+	                <h1 class="form">You don't have friend yet</h1>
+	            <else />
+	                <volist name="list" id="list">
+	                    <div class="posterArea well">
+	                        <span class="replyId hidden">{$list.id}</span>
+	                        
+	                        <div class="">{$list.friendId}</div>
+	                        <span class="cdate pull-right">{$list.cdate}</span><br/>
+	                    </div>
+	                </volist>
+           		</empty>
+            	</div>
+				{$page}
+
+			</div>
+		<div class="right">
+				
+			
+		</div>
+	</div>
+	<!-- copyright -->
+	<!-- footer -->
+	<form class="logoutForm" action="__CONTROLLER__/logout" method="get"></form>
+</body>
+</html> 

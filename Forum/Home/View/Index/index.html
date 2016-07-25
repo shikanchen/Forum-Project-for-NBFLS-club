@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1" user-scalable="no"/>
+    <script type="text/javascript" src="__PUBLIC__/Static/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/Home/javascripts/default.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Static/Home/javascripts/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/FontAwesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/Home/stylesheets/default.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Static/Home/stylesheets/index.css"/>
+	<title></title>
+</head>
+<body>
+	<div id="top">
+		<form id="signIn_form" class="form_table pull-right" method="post" action="__CONTROLLER__/signIn">
+			<font color="white">Sign In</font><span class="pull-right"><a class="animation" href="javascript:void(0)" onclick="switchTable(2)">Sign Up<i class="icon-chevron-right"></i></a></span>
+			<div class="form-group">
+				<input name="name" class="form-control form_ele" type="text" autocomplete="off" placeholder="Enter Name" />
+			</div>
+			<div class="form-group">
+				<input name="password" class="form-control form_ele" type="password" autocomplete="off" placeholder="Enter Password" />
+			</div>
+			<button class="btn btn-default btn-block form_ele" onclick="signIn_submit()">Sign In</button>
+		</form>
+		<form id="signUp_form" class="form_table pull-right" method="post" action="__CONTROLLER__/signUp">
+			<font color="white">Sign Up</font><span class="pull-right"><a class="animation" href="javascript:void(0)" onclick="switchTable(1)">Sign In<i class="icon-chevron-right"></i></a></span>
+			<div class="form-group">
+				<input name="n_name" class="form-control form_ele" type="text" autocomplete="off" placeholder="Enter Name" />
+			</div>
+			<div class="form-group">
+				<input name="n_email" class="form-control form_ele" type="text" autocomplete="off" placeholder="Enter Email" />
+			</div>
+			<div class="form-group">
+				<input name="n_password" class="form-control form_ele" type="password" autocomplete="off" placeholder="Enter Password" />
+			</div>
+			<button class="btn btn-default btn-block form_ele" onclick="signUp_submit()">Sign Up</button>
+		</form>
+	</div>
+	<div id="bottom">
+		
+	</div>
+
+	<!-- footer -->
+	<form class="logoutForm" action="__CONTROLLER__/logout" method="get"></form>
+</body>
+</html>

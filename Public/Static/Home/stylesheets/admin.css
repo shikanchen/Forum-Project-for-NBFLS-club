@@ -1,0 +1,21 @@
+.well{
+	background-color: white;
+	margin-left: 10%;
+	margin-right: 20%;
+}
+
+.left{
+	width: 70%;
+}
+
+#userThumb{
+	width: 20%;
+}
+
+#userProfile{
+	
+}
+
+h1,h2,h3,h4,h5,h6{
+	margin-top: 0%;
+}
